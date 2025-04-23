@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Login Page</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      animation: gradientShift 10s infinite alternate;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+      }
+      100% {
+        background: linear-gradient(135deg, #43cea2, #185a9d);
+      }
+    }
+
+    .login-container {
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      padding: 3.5rem;
+      width: 320px;
+      animation: fadeInUp 1s ease-out;
+      color: white;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .login-container input[type="email"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.3);
+      color: white;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .login-container input:focus {
+      background: rgba(255, 255, 255, 0.5);
+      outline: none;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 0.8rem;
+      background: #00c9a7;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .login-container button:hover {
+      background: #00b395;
+    }
+
+    .error {
+      color: #ffbaba;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>Login</h2>
+  <form id="loginForm">
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button type="submit">Login</button>
+    <div class="error" id="errorMsg"></div>
+  </form>
+</div>
+
+<script>
+  const loginForm = document.getElementById("loginForm");
+  const errorMsg = document.getElementById("errorMsg");
+
+  loginForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (email === "sushantv355@gmail.com" || password === "123456") {
+      errorMsg.textContent = "🎉 Login successful!";
+    } else {
+      errorMsg.textContent = "";
+      alert("Plese check the email or password.");
+      
+    }
+  });
+</script>
+
+</body>
+</html>
